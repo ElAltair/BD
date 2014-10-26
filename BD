@@ -29,8 +29,8 @@ DROP TABLE IF EXISTS `employee`;
 CREATE TABLE `employee` (
   `E_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `E_Name` varchar(45) DEFAULT NULL,
-  `E_Birthday` datetime DEFAULT NULL,
-  `E_Word_Start_Date` datetime DEFAULT NULL,
+  `E_Birthday` date DEFAULT NULL,
+  `E_Word_Start_Date` date DEFAULT NULL,
   `E_Age` int(10) unsigned DEFAULT NULL,
   `N_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`E_id`)
@@ -42,14 +42,14 @@ CREATE TABLE `employee` (
 
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
 INSERT INTO `employee` (`E_id`,`E_Name`,`E_Birthday`,`E_Word_Start_Date`,`E_Age`,`N_id`) VALUES 
- (1,'Иванов','2000-00-00 02:00:00','2025-10-20 14:00:00',24,1),
- (2,'Петров','0000-00-00 00:00:00','2020-03-20 14:00:00',20,1),
- (3,'Сидоров','0000-00-00 00:00:00','2015-06-20 14:00:00',17,1),
- (4,'Васечкин','0000-00-00 00:00:00','2006-07-20 01:00:00',30,1),
- (5,'Авдотьева','0000-00-00 00:00:00','2020-05-20 12:00:00',23,1),
- (6,'Маринин','0000-00-00 00:00:00','2020-05-20 13:00:00',19,1),
- (7,'Мартынюк','0000-00-00 00:00:00','2008-09-20 03:00:00',32,1),
- (8,'Комарова','0000-00-00 00:00:00','2027-09-20 11:00:00',28,1);
+ (1,'Иванов','2000-00-00','2025-10-20',24,1),
+ (2,'Петров','0000-00-00','2020-03-20',20,1),
+ (3,'Сидоров','0000-00-00','2015-06-20',17,1),
+ (4,'Васечкин','0000-00-00','2006-07-20',30,1),
+ (5,'Авдотьева','0000-00-00','2020-05-20',23,1),
+ (6,'Маринин','0000-00-00','2020-05-20',19,1),
+ (7,'Мартынюк','0000-00-00','2008-09-20',32,1),
+ (8,'Комарова','0000-00-00','2027-09-20',28,1);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 
 
@@ -84,7 +84,7 @@ CREATE TABLE `naklad_stroka` (
 DROP TABLE IF EXISTS `nakladnaya`;
 CREATE TABLE `nakladnaya` (
   `N_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `N_Date` datetime DEFAULT NULL,
+  `N_Date` date DEFAULT NULL,
   `N_p_price` int(10) unsigned DEFAULT NULL,
   `N_p_count` int(10) unsigned DEFAULT NULL,
   `E_id` int(10) unsigned NOT NULL,
@@ -156,7 +156,7 @@ CREATE TABLE `supplier` (
   `S_Name` varchar(45) DEFAULT NULL,
   `S_Adress` varchar(45) DEFAULT NULL,
   `S_contract_id` int(10) unsigned DEFAULT NULL,
-  `S_contract_date` datetime DEFAULT NULL,
+  `S_contract_date` date DEFAULT NULL,
   PRIMARY KEY (`S_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
