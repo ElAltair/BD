@@ -1,0 +1,179 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.25
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema storage
+--
+
+CREATE DATABASE IF NOT EXISTS storage;
+USE storage;
+
+--
+-- Definition of table `employee`
+--
+
+DROP TABLE IF EXISTS `employee`;
+CREATE TABLE `employee` (
+  `E_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `E_Name` varchar(45) DEFAULT NULL,
+  `E_Birthday` datetime DEFAULT NULL,
+  `E_Word_Start_Date` datetime DEFAULT NULL,
+  `E_Age` int(10) unsigned DEFAULT NULL,
+  `N_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`E_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `employee`
+--
+
+/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` (`E_id`,`E_Name`,`E_Birthday`,`E_Word_Start_Date`,`E_Age`,`N_id`) VALUES 
+ (1,'Иванов','2000-00-00 02:00:00','2025-10-20 14:00:00',24,1),
+ (2,'Петров','0000-00-00 00:00:00','2020-03-20 14:00:00',20,1),
+ (3,'Сидоров','0000-00-00 00:00:00','2015-06-20 14:00:00',17,1),
+ (4,'Васечкин','0000-00-00 00:00:00','2006-07-20 01:00:00',30,1),
+ (5,'Авдотьева','0000-00-00 00:00:00','2020-05-20 12:00:00',23,1),
+ (6,'Маринин','0000-00-00 00:00:00','2020-05-20 13:00:00',19,1),
+ (7,'Мартынюк','0000-00-00 00:00:00','2008-09-20 03:00:00',32,1),
+ (8,'Комарова','0000-00-00 00:00:00','2027-09-20 11:00:00',28,1);
+/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+
+
+--
+-- Definition of table `naklad_stroka`
+--
+
+DROP TABLE IF EXISTS `naklad_stroka`;
+CREATE TABLE `naklad_stroka` (
+  `N_str_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `P_id` int(10) unsigned NOT NULL,
+  `N_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`N_str_id`) USING BTREE,
+  KEY `FK_naklad_stroka_1` (`N_id`),
+  KEY `FK_naklad_stroka_2` (`P_id`),
+  CONSTRAINT `FK_naklad_stroka_1` FOREIGN KEY (`N_id`) REFERENCES `naklad_stroka` (`N_str_id`),
+  CONSTRAINT `FK_naklad_stroka_2` FOREIGN KEY (`P_id`) REFERENCES `provision` (`P_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `naklad_stroka`
+--
+
+/*!40000 ALTER TABLE `naklad_stroka` DISABLE KEYS */;
+/*!40000 ALTER TABLE `naklad_stroka` ENABLE KEYS */;
+
+
+--
+-- Definition of table `nakladnaya`
+--
+
+DROP TABLE IF EXISTS `nakladnaya`;
+CREATE TABLE `nakladnaya` (
+  `N_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `N_Date` datetime DEFAULT NULL,
+  `N_p_price` int(10) unsigned DEFAULT NULL,
+  `N_p_count` int(10) unsigned DEFAULT NULL,
+  `E_id` int(10) unsigned NOT NULL,
+  `S_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`N_id`),
+  KEY `FK_nakladnaya_1` (`E_id`),
+  KEY `FK_nakladnaya_2` (`S_id`),
+  CONSTRAINT `FK_nakladnaya_1` FOREIGN KEY (`S_id`) REFERENCES `supplier` (`S_id`),
+  CONSTRAINT `FK_nakladnaya_2` FOREIGN KEY (`S_id`) REFERENCES `supplier` (`S_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `nakladnaya`
+--
+
+/*!40000 ALTER TABLE `nakladnaya` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nakladnaya` ENABLE KEYS */;
+
+
+--
+-- Definition of table `provision`
+--
+
+DROP TABLE IF EXISTS `provision`;
+CREATE TABLE `provision` (
+  `P_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `P_Name` varchar(45) DEFAULT NULL,
+  `P_Material` varchar(45) DEFAULT NULL,
+  `P_Weght` int(10) unsigned DEFAULT NULL,
+  `P_Price` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`P_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `provision`
+--
+
+/*!40000 ALTER TABLE `provision` DISABLE KEYS */;
+/*!40000 ALTER TABLE `provision` ENABLE KEYS */;
+
+
+--
+-- Definition of table `storage`
+--
+
+DROP TABLE IF EXISTS `storage`;
+CREATE TABLE `storage` (
+  `S_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `S_prov_ count` int(10) unsigned DEFAULT NULL,
+  `S_prov_price` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`S_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `storage`
+--
+
+/*!40000 ALTER TABLE `storage` DISABLE KEYS */;
+/*!40000 ALTER TABLE `storage` ENABLE KEYS */;
+
+
+--
+-- Definition of table `supplier`
+--
+
+DROP TABLE IF EXISTS `supplier`;
+CREATE TABLE `supplier` (
+  `S_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `S_Name` varchar(45) DEFAULT NULL,
+  `S_Adress` varchar(45) DEFAULT NULL,
+  `S_contract_id` int(10) unsigned DEFAULT NULL,
+  `S_contract_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`S_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `supplier`
+--
+
+/*!40000 ALTER TABLE `supplier` DISABLE KEYS */;
+/*!40000 ALTER TABLE `supplier` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
