@@ -1,5 +1,3 @@
-BD
-This repository include 4 files of .doc of documentation and sql base
-==
-
+Thit repository includs 5 files - 1 bd datebase bd.sqp and 4 documentation
+> bd_github/bd1.1
 course work BD
