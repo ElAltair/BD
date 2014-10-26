@@ -55,7 +55,7 @@ body {
 	height: 70px;
 	background: #FFE680;
 }
-.header ul li {
+.header .ul_li li {
 	float:left;
 	padding-left:20px;
 	margin-top:30px;
@@ -77,7 +77,7 @@ a:hover {
 	width: 100%;
 	padding: 0 0 150px;
 	position: relative;
-	background-color:#FF9;
+	background-color:#F96;
 }
 .middle:after {
 	display: table;
@@ -102,13 +102,48 @@ a:hover {
 	 font-size:18px;
 	 color:#0CF;
 }
+li 
+{
+   padding-top:20px;	
+}
 .query
 {
-	 margin-top:30px;
+	margin-top:30px;
+	 margin-left:20px;
+	 font-size:16px;
+}
+.content a:hover
+{
+	font-style:italic;
 }
 
+.content .query_name
+{
+	padding-left:130px;
+	margin-top:150px;
+	font-size:30px;
+	color:#309;
+}
+.content .query_name_form
+{
+	font-size:24px;
+	color:#309;
+	margin-top:130px;
+	margin-left:30px;
+}
 
-
+.content form
+{
+	margin-top:10px;
+	margin-left:200px;
+}
+.content .form_name
+{
+	margin-top:50px;
+	margin-left:200px;
+	font-size:16px;
+	color:#99F;
+}
 /* Left Sidebar
 -----------------------------------------------------------------------------*/
 .left-sidebar {
@@ -133,6 +168,7 @@ a:hover {
 	margin-top:100px;
 	font-size:24px;
 	font-style:italic;
+	
 }
 /* Footer
 -----------------------------------------------------------------------------*/
