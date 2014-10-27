@@ -25,10 +25,10 @@
 
 		<div class="container">
 			<div class="content">
-             <div class="query_name_form">Сравнение поставок заготовок за период времени</div>
-            <div class="form_name"> Введите период времени </div>
-				<form action="#" method="get">
-                <input type="text" value="20/01/2013 - 20/02/2013 " />
+             <div class="query_name_form">Поставщик поставляющий самую дешевую заготовку</div>
+            <div class="form_name"> Введите номер заготовки </div>
+				<form action="" method="get">
+                <input type="text" name="text_detail" value="213008 " />
                 <input type="submit" value="Подтвердить" />
                 </form>
 			</div><!-- .content-->

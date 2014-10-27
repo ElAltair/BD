@@ -25,12 +25,23 @@
 
 		<div class="container">
 			<div class="content">
-             <div class="query_name_form">Сравнение поставок заготовок за период времени</div>
-            <div class="form_name"> Введите период времени </div>
-				<form action="#" method="get">
-                <input type="text" value="20/01/2013 - 20/02/2013 " />
-                <input type="submit" value="Подтвердить" />
-                </form>
+            <div>
+               <?php
+			   
+			       $pdo=new PDO('mysql:host=localhost;dbname=storage','root','');
+				   $sql=$pdo->prepare("select E_Name from `employee` where E_id=?");
+				   $sql->execute(array($detail));
+				//   $result=$pdo->query($sql);
+				   
+				   while($row=$sql->fetch())
+				   {
+					  $aname[]=$row['E_Name'];
+					  echo $name[0];
+				   }
+				   
+				   ?>
+               </div>
+             
 			</div><!-- .content-->
 		</div><!-- .container-->
 

@@ -1,4 +1,4 @@
-/* Yahoo! CSS Reset */
+﻿/* Yahoo! CSS Reset */
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
 	margin: 0;
 	padding: 0;
@@ -137,6 +137,10 @@ li
 	margin-top:10px;
 	margin-left:200px;
 }
+.content .login
+{
+	
+}
 .content .form_name
 {
 	margin-top:50px;
@@ -144,6 +148,23 @@ li
 	font-size:16px;
 	color:#99F;
 }
+.content .login input.text
+{
+	height:20px;
+}
+.content .login .login_name 
+{
+	font-size:16px;
+}
+.content .login .password_name 
+{
+	font-size:16px;
+}
+.content .login input.password
+{
+	height:20px;
+}
+
 /* Left Sidebar
 -----------------------------------------------------------------------------*/
 .left-sidebar {
