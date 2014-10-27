@@ -5,7 +5,6 @@
                   }
                   else
 				  {
-                  $detail=$_REQUEST['text_detail'];
                  // echo 'You chose-' . $detail;
                   include 'query_out2.html.php';
 				  }

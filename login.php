@@ -16,7 +16,7 @@
       <li> <a href="/"> Главная </a></li>
       <li> <a href="#"> Создать накладную </a></li>
       <li> <a href="inf_query.html"> Информационные запросы </a></li>
-      <li> <a href="#"> Войти </a></li>
+      <li> <a href="controll_cookie.php"> Войти </a></li>
     </ul>
   </div>
   <!-- .header-->

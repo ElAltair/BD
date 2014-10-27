@@ -5,7 +5,8 @@
 	<title></title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="php/style.css" type="text/css" />
+	<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -15,10 +16,9 @@
 	<div class="header">
 		<ul class="ul_li">
            <li> <a href="/"> Главная </a></li>
-           <li> <a href="#"> Создать накладную </a></li>
+           <li> <a href="/"> Создать накладную </a></li>
            <li> <a href="/inf_query.html"> Информационные запросы </a></li>
            <li> <a href="/loginform.html"> Войти </a></li>
-           <li> <a href="controll_cookie_out.php">Выйти </a><li>
        </ul>
 	</div><!-- .header-->
 
@@ -26,13 +26,8 @@
 
 		<div class="container">
 			<div class="content">
-            
-             <div class="query_name_form">Поставщик поставляющий самую дешевую заготовку</div>
-            <div class="form_name"> Введите номер заготовки </div>
-				<form action="#" method="get">
-                <input type="text" name="text_detail" value="213008 " />
-                <input type="submit" value="Подтвердить" />
-                </form>
+             <div class="query_name_form">Сравнение поставок заготовок за период времени</div>
+           <div><?php echo "Hi,query1!" ?></div>
 			</div><!-- .content-->
 		</div><!-- .container-->
 

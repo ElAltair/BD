@@ -6,6 +6,7 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link href="../style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>

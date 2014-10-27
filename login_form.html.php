@@ -17,6 +17,7 @@
       <li> <a href="#"> Создать накладную </a></li>
       <li> <a href="inf_query.html"> Информационные запросы </a></li>
       <li> <a href="#"> Войти </a></li>
+      <li> <a href="controll_cookie_out.php">Выйти </a><li>
     </ul>
   </div>
   <!-- .header-->
@@ -26,7 +27,7 @@
       <div class="content">
         <form class="login" action="" method="get">
           <div class="login_name">Login</div>
-          <input class="text" type="text" name="text_login"/>
+          <input class="text" type="text" name="login"/>
           <div class="password_name">Password</div>
           <input class="password" type="password" />
           <input class="button_submit" type="submit" value="Подтвердить" />

@@ -6,6 +6,7 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link href="../style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -18,6 +19,7 @@
            <li> <a href="/"> Создать накладную </a></li>
            <li> <a href="/inf_query.html"> Информационные запросы </a></li>
            <li> <a href="/loginform.html"> Войти </a></li>
+           <li> <a href="controll_cookie_out.php">Выйти </a><li>
        </ul>
 	</div><!-- .header-->
 
@@ -27,8 +29,9 @@
 			<div class="content">
              <div class="query_name_form">Сравнение поставок заготовок за период времени</div>
             <div class="form_name"> Введите период времени </div>
-				<form action="#" method="get">
-                <input type="text" value="20/01/2013 - 20/02/2013 " />
+				<form class="query_form1" action="controll_query1.php" method="get">
+                <input type="text" value="20.01.2013" name="date1" />
+                <input type="text" value="20.02.2013" name="date2"/>
                 <input type="submit" value="Подтвердить" />
                 </form>
 			</div><!-- .content-->
