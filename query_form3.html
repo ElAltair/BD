@@ -6,34 +6,34 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link href="../style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
 <div class="wrapper">
- 
+
 	<div class="header">
-   
 		<ul class="ul_li">
            <li> <a href="/"> Главная </a></li>
-           <li> <a href="#"> Создать накладную </a></li>
+           <li> <a href="/"> Создать накладную </a></li>
            <li> <a href="/inf_query.html"> Информационные запросы </a></li>
-           <li> <a href="index.php"> Войти </a></li>
+           <li> <a href="/loginform.html"> Войти </a></li>
            <li> <a href="controll_cookie_out.php">Выйти </a><li>
        </ul>
+	</div><!-- .header-->
 
-
-     	</div><!-- .header-->            
 	<div class="middle">
 
 		<div class="container">
 			<div class="content">
-				<div class="query_name">Информационные запросы</div>
-                 <ul class="query">
-                 <li><a href="controll_query1.php">Сравнение поставок заготовок за период времени </a>
-                 <li><a href="controll_query2.php">Поставщик поставляющий самую дешевую заготоку </a>
-                 <li><a href="controll_query3.php"> Поставщик поставляющий наибольшее количество заготовок за период времени </a>
-                 </ul> 
+             <div class="query_name_form">Показать поставщика,поставившего наибольшее количество заготовок данного типа за промежуток времени</div>
+            <div class="form_name"> Введите период времени </div>
+				<form class="query_form1" action="" method="get">
+                <input type="text" value="20.01.2013" name="date1" />
+                <input type="text" value="20.02.2013" name="date2"/>
+                <input type="submit" value="Подтвердить" />
+                </form>
 			</div><!-- .content-->
 		</div><!-- .container-->
 
@@ -41,9 +41,9 @@
         <div class="base-date">Базы данных</div>
 			<ul>
            <li> <a href="/"> Накладные </a></li>
-           <li> <a href="#"> Сотрудники </a></li>
-           <li> <a href="#"> Поставщики </a></li>
-           <li> <a href="#"> Заготовки </a></li>
+           <li> <a href="/"> Сотрудники </a></li>
+           <li> <a href="/"> Поставщики </a></li>
+           <li> <a href="/"> Заготовки </a></li>
            
        </ul>
 		</div><!-- .left-sidebar -->

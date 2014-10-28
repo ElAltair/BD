@@ -1,5 +1,5 @@
 ﻿<?php
-                 if(!isset($_REQUEST['date1']))
+                 if(!isset($_REQUEST['text_detail']))
                  {
                     include'query_form2.html.php';
                   }

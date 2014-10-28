@@ -27,9 +27,6 @@
        <table class="php_table">
                 <tr>
                 <td><?php echo $name?></td>
-                <td><?php echo $adress?></td>
-                <td><?php echo $contract?></td>
-                <td><?php echo $date?></td>
                 </tr>
          </table>
       </div>

@@ -6,8 +6,7 @@
 on P.P_id=N.P_id
 group by(P_name)';
                $result=$pdo->query($sql);
-			   $row_count=$pdo->exec($sql);
-			   }
+			    }
 			   catch(PDOException $e)
 			   {
 				   $output='Невозможно извлечь данные'.$e->getMessage();

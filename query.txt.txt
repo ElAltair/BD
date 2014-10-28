@@ -27,6 +27,4 @@ query 2
 select S_Name,S_Adress,S_contract_id,S_contract_date from supplier S join nakladnaya N
 on S.S_id=N.S_id where N_id=
 (select N_id from naklad_stroka
-where N_str_pov_price = (select min(N_str_pov_price) from naklad_stroka))
-
-
+where  P_id=1 and N_str_pov_price = (select min(N_str_pov_price) from naklad_stroka ))
