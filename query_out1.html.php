@@ -5,8 +5,7 @@
 	<title></title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
-	<link rel="stylesheet" href="php/style.css" type="text/css" />
-	<link href="style.css" rel="stylesheet" type="text/css" />
+		<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -27,7 +26,33 @@
 		<div class="container">
 			<div class="content">
              <div class="query_name_form">Сравнение поставок заготовок за период времени</div>
-           <div><?php echo "Hi,query1!" ?></div>
+             <table	 class="php_table">
+                <tr>
+                <td><?php echo '<div color=#fff>'.$detail[0].'</div>'?></td>
+                <td><?php echo $count[0]?></td>
+                </tr>
+                <td><?php echo $detail[1]?></td>
+                <td><?php echo $count[1]?></td>
+                </tr>
+                <td><?php echo $detail[2]?></td>
+                <td><?php echo $count[2]?></td>
+                </tr>
+                <td><?php echo $detail[3]?></td>
+                <td><?php echo $count[3]?></td>
+                </tr>
+                <td><?php echo $detail[4]?></td>
+                <td><?php echo $count[4]?></td>
+                </tr>
+                <td><?php echo $detail[5]?></td>
+                <td><?php echo $count[5]?></td>
+                </tr>
+                <td><?php echo $detail[6]?></td>
+                <td><?php echo $count[6]?></td>
+                </tr>
+                <td><?php echo $detail[7]?></td>
+                <td><?php echo $count[7]?></td>
+                </tr>
+                </table>
 			</div><!-- .content-->
 		</div><!-- .container-->
 

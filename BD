@@ -22,6 +22,16 @@ CREATE DATABASE IF NOT EXISTS storage;
 USE storage;
 
 --
+-- Temporary table structure for view `count_supplier`
+--
+DROP TABLE IF EXISTS `count_supplier`;
+DROP VIEW IF EXISTS `count_supplier`;
+CREATE TABLE `count_supplier` (
+  `N_id` int(10) unsigned,
+  `count_n` bigint(21)
+);
+
+--
 -- Definition of table `employee`
 --
 
@@ -32,7 +42,6 @@ CREATE TABLE `employee` (
   `E_Birthday` date DEFAULT NULL,
   `E_Word_Start_Date` date DEFAULT NULL,
   `E_Age` int(10) unsigned DEFAULT NULL,
-  `N_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`E_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
@@ -41,15 +50,15 @@ CREATE TABLE `employee` (
 --
 
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` (`E_id`,`E_Name`,`E_Birthday`,`E_Word_Start_Date`,`E_Age`,`N_id`) VALUES 
- (1,'Иванов','2000-00-00','2025-10-20',24,1),
- (2,'Петров','0000-00-00','2020-03-20',20,1),
- (3,'Сидоров','0000-00-00','2015-06-20',17,1),
- (4,'Васечкин','0000-00-00','2006-07-20',30,1),
- (5,'Авдотьева','0000-00-00','2020-05-20',23,1),
- (6,'Маринин','0000-00-00','2020-05-20',19,1),
- (7,'Мартынюк','0000-00-00','2008-09-20',32,1),
- (8,'Комарова','0000-00-00','2027-09-20',28,1);
+INSERT INTO `employee` (`E_id`,`E_Name`,`E_Birthday`,`E_Word_Start_Date`,`E_Age`) VALUES 
+ (1,'Иванов','2000-00-00','2025-10-20',24),
+ (2,'Петров','0000-00-00','2020-03-20',20),
+ (3,'Сидоров','0000-00-00','2015-06-20',17),
+ (4,'Васечкин','0000-00-00','2006-07-20',30),
+ (5,'Авдотьева','0000-00-00','2020-05-20',23),
+ (6,'Маринин','0000-00-00','2020-05-20',19),
+ (7,'Мартынюк','0000-00-00','2008-09-20',32),
+ (8,'Комарова','0000-00-00','2027-09-20',28);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 
 
@@ -62,18 +71,29 @@ CREATE TABLE `naklad_stroka` (
   `N_str_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `P_id` int(10) unsigned NOT NULL,
   `N_id` int(10) unsigned NOT NULL,
+  `N_str_provi_count` int(10) unsigned NOT NULL,
+  `N_str_pov_price` int(10) unsigned NOT NULL,
   PRIMARY KEY (`N_str_id`) USING BTREE,
   KEY `FK_naklad_stroka_1` (`N_id`),
   KEY `FK_naklad_stroka_2` (`P_id`),
-  CONSTRAINT `FK_naklad_stroka_1` FOREIGN KEY (`N_id`) REFERENCES `naklad_stroka` (`N_str_id`),
+  CONSTRAINT `FK_naklad_stroka_1` FOREIGN KEY (`N_id`) REFERENCES `nakladnaya` (`N_id`),
   CONSTRAINT `FK_naklad_stroka_2` FOREIGN KEY (`P_id`) REFERENCES `provision` (`P_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `naklad_stroka`
 --
 
 /*!40000 ALTER TABLE `naklad_stroka` DISABLE KEYS */;
+INSERT INTO `naklad_stroka` (`N_str_id`,`P_id`,`N_id`,`N_str_provi_count`,`N_str_pov_price`) VALUES 
+ (1,1,1,1000,90),
+ (2,2,1,500,190),
+ (3,5,2,2000,300),
+ (4,6,2,5000,100),
+ (5,1,2,500,900),
+ (7,8,4,2000,600),
+ (8,5,3,1000,490),
+ (9,3,6,300,290);
 /*!40000 ALTER TABLE `naklad_stroka` ENABLE KEYS */;
 
 
@@ -85,22 +105,27 @@ DROP TABLE IF EXISTS `nakladnaya`;
 CREATE TABLE `nakladnaya` (
   `N_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `N_Date` date DEFAULT NULL,
-  `N_p_price` int(10) unsigned DEFAULT NULL,
-  `N_p_count` int(10) unsigned DEFAULT NULL,
   `E_id` int(10) unsigned NOT NULL,
   `S_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`N_id`),
   KEY `FK_nakladnaya_1` (`E_id`),
   KEY `FK_nakladnaya_2` (`S_id`),
-  CONSTRAINT `FK_nakladnaya_1` FOREIGN KEY (`S_id`) REFERENCES `supplier` (`S_id`),
+  CONSTRAINT `FK_nakladnaya_1` FOREIGN KEY (`E_id`) REFERENCES `employee` (`E_id`),
   CONSTRAINT `FK_nakladnaya_2` FOREIGN KEY (`S_id`) REFERENCES `supplier` (`S_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `nakladnaya`
 --
 
 /*!40000 ALTER TABLE `nakladnaya` DISABLE KEYS */;
+INSERT INTO `nakladnaya` (`N_id`,`N_Date`,`E_id`,`S_id`) VALUES 
+ (1,'2020-01-20',1,2),
+ (2,'2019-04-20',2,2),
+ (3,'2020-06-20',1,3),
+ (4,'2001-09-20',3,1),
+ (5,'2007-05-20',8,1),
+ (6,'2020-01-04',5,1);
 /*!40000 ALTER TABLE `nakladnaya` ENABLE KEYS */;
 
 
@@ -116,13 +141,22 @@ CREATE TABLE `provision` (
   `P_Weght` int(10) unsigned DEFAULT NULL,
   `P_Price` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`P_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `provision`
 --
 
 /*!40000 ALTER TABLE `provision` DISABLE KEYS */;
+INSERT INTO `provision` (`P_id`,`P_Name`,`P_Material`,`P_Weght`,`P_Price`) VALUES 
+ (1,'Упаковка','Сталь',1000,1000),
+ (2,'Выточка','Сталь',1200,200),
+ (3,'Отливка','Сталь',1300,300),
+ (4,'Отливка-5','Сталь',1400,400),
+ (5,'Выточка-5','Сталь',1500,500),
+ (6,'Шайбы','Сталь',1600,600),
+ (7,'Пруток-5','Сталь',1700,700),
+ (8,'Пруток-10','Сталь',1800,800);
 /*!40000 ALTER TABLE `provision` ENABLE KEYS */;
 
 
@@ -158,15 +192,27 @@ CREATE TABLE `supplier` (
   `S_contract_id` int(10) unsigned DEFAULT NULL,
   `S_contract_date` date DEFAULT NULL,
   PRIMARY KEY (`S_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `supplier`
 --
 
 /*!40000 ALTER TABLE `supplier` DISABLE KEYS */;
+INSERT INTO `supplier` (`S_id`,`S_Name`,`S_Adress`,`S_contract_id`,`S_contract_date`) VALUES 
+ (1,'ООО Детали здесь','г. Выборг',5600,'2020-01-20'),
+ (2,'ОАО Детал пром','г. Москва',5601,'2020-05-20'),
+ (3,'ООО Детпром','г. Санкт-Петербург',5602,'2021-05-20');
 /*!40000 ALTER TABLE `supplier` ENABLE KEYS */;
 
+
+--
+-- Definition of view `count_supplier`
+--
+
+DROP TABLE IF EXISTS `count_supplier`;
+DROP VIEW IF EXISTS `count_supplier`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `count_supplier` AS select `naklad_stroka`.`N_id` AS `N_id`,count(0) AS `count_n` from `naklad_stroka` group by `naklad_stroka`.`N_id`;
 
 
 

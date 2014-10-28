@@ -55,18 +55,13 @@ body {
 	height: 70px;
 	background: #FFE680;
 }
-.header ul
-{
-   padding-bottom:20px;	
-	
-}
 .header .ul_li li {
 	float:left;
-    padding-left:10px;
+	padding-left:20px;
 	margin-top:30px;
-	margin-left:70px;
+	margin-left:40px;
 	font-size:18px;
-*/	
+	
 }
 
 a{
@@ -99,7 +94,26 @@ a:hover {
 .content {
 	padding: 0 0 0 270px;
 		
-	height:450px;	
+	height:450px
+}
+.content .php_name
+{
+	font-size:16px;
+	color:#339;
+	padding-top:10px;
+	margin-left:100px;
+}
+.content .php_count
+{
+	font-size:16px;
+	color:#339;
+	padding-top:10px;
+	margin-right:100px;
+}
+.content .php_table
+{
+	border:2px;
+	border-color:#FFF;
 	
 }
 .content h2
@@ -153,11 +167,6 @@ li
 	font-size:16px;
 	color:#99F;
 }
-.content .query_form1
-{
-  margin-left:100px;	
-}
-
 .content .login input.text
 {
 	height:20px;

@@ -6,6 +6,6 @@
                   else
 				  {
                  // echo 'You chose-' . $detail;
-                  include 'query_out1.html.php';
+                  include 'query_out1_bd.html.php';
 				  }
 				  ?>

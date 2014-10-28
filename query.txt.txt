@@ -1,0 +1,32 @@
+query 3
+
+create view count_supplier as
+select N_id,count(*) as count_n from naklad_stroka
+group by(N_id)
+
+
+query from view
+
+select  N_id from count_supplier where count_n = (select max(count_n) from count_supplier)
+
+
+select S_Name,S_Adress,S_contract_id,S_contract_date from supplier S join nakladnaya N where S.S_id=N.S_id
+and N_id = (select  N_id from count_supplier where count_n = (select max(count_n) from count_supplier))
+
+
+query 1
+
+
+select P_name,count(N_str_id) as detail_count from provision P left join naklad_stroka N
+on P.P_id=N.P_id
+group by(P_name)
+
+
+query 2
+
+select S_Name,S_Adress,S_contract_id,S_contract_date from supplier S join nakladnaya N
+on S.S_id=N.S_id where N_id=
+(select N_id from naklad_stroka
+where N_str_pov_price = (select min(N_str_pov_price) from naklad_stroka))
+
+

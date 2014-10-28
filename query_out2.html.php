@@ -5,8 +5,7 @@
 <title></title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link rel="stylesheet" href="style.css" type="text/css" />
-<link href="../style.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
@@ -25,21 +24,33 @@
   <div class="middle">
     <div class="container">
       <div class="content">
-        <div>
-          <?php
-			   	
-			       $pdo=new PDO('mysql:host=localhost;dbname=storage','root','');
-				   $sql=$pdo->prepare("select E_Name from employee where E_id=?");
-				   $sql->execute(array($_GET['text_detail']));
-				//   $result=$pdo->query($sql);
-				   
-				   while($row=$sql->fetch())
-				   {
-					 echo $row['E_Name'];
-				   }
-				   
-				   ?>
-        </div>
+       <table class="php_table">
+                <tr>
+                <td><?php echo'LOL<td color=#fff>'. $detail[0].'</td>'?></td>
+                <td><?php echo $count[0];?></td>
+                </tr>
+                <td><?php echo $detail[1];?></td>
+                <td><?php echo $count[1];?></td>
+                </tr>
+                <td><?php echo $detail[2];?></td>
+                <td><?php echo $count[2];?></td>
+                </tr>
+                <td><?php echo $detail[3];?></td>
+                <td><?php echo $count[3];?></td>
+                </tr>
+                <td><?php echo $detail[4];?></td>
+                <td><?php echo $count[4];?></td>
+                </tr>
+                <td><?php echo $detail[5];?></td>
+                <td><?php echo $count[5];?></td>
+                </tr>
+                <td><?php echo $detail[6];?></td>
+                <td><?php echo $count[6];?></td>
+                </tr>
+                <td><?php echo $detail[7];?></td>
+                <td><?php echo $count[7];?></td>
+                </tr>
+                </table>
       </div>
       <!-- .content--> 
     </div>
