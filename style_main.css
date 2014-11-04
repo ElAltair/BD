@@ -25,41 +25,55 @@ body
 {
 	
 	height:100px;
-	background-color:#0C0;
+	border: 2px solid grey;
+	/*//background-color:#0C0;*/
 }
 #wrapper
 {
     width:1000px;
 	margin:0 auto;
+	/*border: 2px dashed black;*/
 }
 #footer
 {
-	width:1000px;
-	height:100px;
-	margin:0 auto;
-	background-color:#0F9;
+	width:100%;
+	height:50px;
+	/*margin-top:50px;*/
+	/*margin:0 auto;*/
+	border: 2px solid grey;
+	/*//background-color:#0F9;*/
 	
 }
 #left-sidebar
 {
 	width:200px;
 	float:left;
-	background-color:#06F;
+	border: 2px dotted red;
+	height: 100%;
+	/* background-color:#06F; */
 	
 }
 #middle
 {
-	width:100%;
-	background-color:#FF3;
-	height:100%px;
+	width:100%-2px;
+	/*background-color:#FF3;*/
+	border: 2px solid grey;
+	height:630px;
 	
+}
+#container
+{
+	/*background-color:#C60;*/
+	border: 2px solid grey;
+	margin-left:210px;
+	height: 100%;
 }
 #content
 {
-	background-color:#C60;
-	margin-left:21	0px;
-	
-	
-	
+	border:1px dotted blue;
+	heigth:100px;
+	width:100px;
+	margin-left:100px;
+	margin-top:200px;
 }
 	
