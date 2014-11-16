@@ -1,5 +1,5 @@
 ﻿<?php 
-		       include'../connect_bd.php'; 
+		       include'../../include/connect_bd.php'; 
 			   try{
 			   $detail=$_GET['text_detail'];
 			   $sql="select S.S_id,S_Name,S_Adress,S_contract_id,S_contract_date from supplier S join nakladnaya N

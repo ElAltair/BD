@@ -1,5 +1,5 @@
 ﻿<?php 
-		       include'../connect_bd.php'; 
+		       include'../../include/connect_bd.php'; 
 			   try{
 			   $sql="select P.P_id,P_name,count(N_str_id) as count from provision P left join naklad_stroka N
 on P.P_id=N.P_id
