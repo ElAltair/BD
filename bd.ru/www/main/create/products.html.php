@@ -1,16 +1,17 @@
 ﻿<html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Создание накладной</title>
 </head>
 <body>
 <h2 align=center> Выберите товар </h2>
 <form action=" " method="get">
 <label for="provision">Введите id товара</label>
-<input required id="provision" name="provision" ><br>
+<input required id="provision" name="provision" ><br><br>
 <label for="count">Введите количество товара</label>
 <input required id="count" name="provision_count" ><br>
 <input type=submit name="choose_prod">
-
+</form>
 <table border=1 width=100%>
 <tbody>
                 <tr>
@@ -31,7 +32,9 @@
 					   <?php endforeach; ?>
 </tbody>
 </table>
-
+<form action=" ?get_choose_sup" metho=get>
+<input type=submit name=back_supplier value= Назад >
+</form>
 <br><br>
 
 
@@ -46,35 +49,35 @@
 <td align=center> Количество </td>
 </tr>
 						
-                       <tr>
-					   <td align = center><?php echo $_GET['provision']?></td>
-					   <td align=center><?php echo $provision[$_GET['provision']-1]['name']?></td>
-                       <td align=center ><?php echo $_GET['provision_count']?></td>
-                       <td align=center><input type="submit" name="delete"value="Удалить"></td>
-                       <td align=center><input type="submit" name="edit" value="Редактировать"></td>
+                    <form action=" " metho = get >   
+					 <?php
+					// print_r($products);
+					// echo "<br>";
+					 if(is_array($products))
+					 {
+					    foreach ($products as $pr=>$value)
+						  {  
+							echo "<tr><td align=center>".$pr."</td>";
+							echo "<td align = center>".$provision[$pr-1]['name']."</td>";
+							echo "<td align=center>".$value."</td>";
+							echo "<td align=center><input type=submit name=d".$pr." value= Удалить ></td>";
+                            echo "<td align=center><input type=submit name=e".$pr." value=Редактировать></td></tr>";
+					     }
+					 }
+							?>
+                      </form>
                        </tr>
-                      <?php 
-					    $a=1;
-					      while(isset($_GET[$i]))
-						  {							  
-						   $i="h".$a;
-							$j="hc".$a;    
-							  echo "<input type=hidden name=".$i." value=".$_GET[$i]."><br>";
-                              echo "<input type=hidden name=".$j." value=".$_GET[$j].">";
-                              $a+=1;
-						  }
-					?>
+                  
                        
                        
-                       <input type="hidden" name="supplier" value="<?php echo $_GET['supplier']?>">	
                        </tbody>
                        </table>
                       
 
 
-</form>
 
-<?php print_r($_GET); ?>
+
+
 
 <br><br>
 <div align=right>

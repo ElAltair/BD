@@ -29,9 +29,15 @@
 </tbody>
 </table>
 <br><br>
+<div align=left>
+<form action=" " metho="get">
+<input type="submit" id="button" name="back_main_naklad" value="Назад">
+</form>
+</div>
+<div align=right>
 <form action=" " metho="get">
 <input type="submit" id="button" name="new_sup" value="Создать нового поставщика">
 </form>
-
+</div>
 </body>
 </html>

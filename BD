@@ -78,7 +78,7 @@ CREATE TABLE `naklad_stroka` (
   KEY `FK_naklad_stroka_2` (`P_id`),
   CONSTRAINT `FK_naklad_stroka_1` FOREIGN KEY (`N_id`) REFERENCES `nakladnaya` (`N_id`),
   CONSTRAINT `FK_naklad_stroka_2` FOREIGN KEY (`P_id`) REFERENCES `provision` (`P_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `naklad_stroka`
@@ -86,14 +86,18 @@ CREATE TABLE `naklad_stroka` (
 
 /*!40000 ALTER TABLE `naklad_stroka` DISABLE KEYS */;
 INSERT INTO `naklad_stroka` (`N_str_id`,`P_id`,`N_id`,`N_str_provi_count`,`N_str_pov_price`) VALUES 
- (1,1,1,1000,90),
+ (1,1,1,1000,900),
  (2,2,1,500,190),
  (3,5,2,2000,300),
- (4,6,2,5000,100),
+ (4,2,2,5000,100),
  (5,1,2,500,900),
- (7,8,4,2000,600),
- (8,5,3,1000,490),
- (9,3,6,300,290);
+ (6,8,4,2000,600),
+ (7,5,3,1000,490),
+ (8,3,6,300,290),
+ (9,1,1,200,100),
+ (10,2,2,700,150),
+ (11,2,1,4000,600),
+ (12,1,2,100,890);
 /*!40000 ALTER TABLE `naklad_stroka` ENABLE KEYS */;
 
 
@@ -121,11 +125,11 @@ CREATE TABLE `nakladnaya` (
 /*!40000 ALTER TABLE `nakladnaya` DISABLE KEYS */;
 INSERT INTO `nakladnaya` (`N_id`,`N_Date`,`E_id`,`S_id`) VALUES 
  (1,'2020-01-20',1,2),
- (2,'2019-04-20',2,2),
+ (2,'2019-04-20',2,1),
  (3,'2020-06-20',1,3),
  (4,'2001-09-20',3,1),
  (5,'2007-05-20',8,1),
- (6,'2020-01-04',5,1);
+ (6,'2020-01-04',5,2);
 /*!40000 ALTER TABLE `nakladnaya` ENABLE KEYS */;
 
 
@@ -138,7 +142,7 @@ CREATE TABLE `provision` (
   `P_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `P_Name` varchar(45) DEFAULT NULL,
   `P_Material` varchar(45) DEFAULT NULL,
-  `P_Weght` int(10) unsigned DEFAULT NULL,
+  `P_Weight` int(10) unsigned DEFAULT NULL,
   `P_Price` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`P_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
@@ -148,7 +152,7 @@ CREATE TABLE `provision` (
 --
 
 /*!40000 ALTER TABLE `provision` DISABLE KEYS */;
-INSERT INTO `provision` (`P_id`,`P_Name`,`P_Material`,`P_Weght`,`P_Price`) VALUES 
+INSERT INTO `provision` (`P_id`,`P_Name`,`P_Material`,`P_Weight`,`P_Price`) VALUES 
  (1,'Упаковка','Сталь',1000,1000),
  (2,'Выточка','Сталь',1200,200),
  (3,'Отливка','Сталь',1300,300),
@@ -192,7 +196,7 @@ CREATE TABLE `supplier` (
   `S_contract_id` int(10) unsigned DEFAULT NULL,
   `S_contract_date` date DEFAULT NULL,
   PRIMARY KEY (`S_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `supplier`
@@ -202,8 +206,32 @@ CREATE TABLE `supplier` (
 INSERT INTO `supplier` (`S_id`,`S_Name`,`S_Adress`,`S_contract_id`,`S_contract_date`) VALUES 
  (1,'ООО Детали здесь','г. Выборг',5600,'2020-01-20'),
  (2,'ОАО Детал пром','г. Москва',5601,'2020-05-20'),
- (3,'ООО Детпром','г. Санкт-Петербург',5602,'2021-05-20');
+ (3,'ООО Детпром','г. Санкт-Петербург',5602,'2021-05-20'),
+ (4,'Dkfl','Moscow',78,'2014-11-23');
 /*!40000 ALTER TABLE `supplier` ENABLE KEYS */;
+
+
+--
+-- Definition of table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `Id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Login` varchar(45) NOT NULL,
+  `Password` varchar(45) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`Id`,`Login`,`Password`) VALUES 
+ (1,'admin','0000'),
+ (2,'user','1111');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 
 --

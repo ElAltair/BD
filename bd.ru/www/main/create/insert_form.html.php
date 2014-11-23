@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 <head>
 <title>Создание нового поставщика</title>
 </head>
@@ -22,14 +22,23 @@
 </tr>
 </tbody>
 </table>
+
+
+
 <br><br>
-<dvi align=left>
-<<input type=submit name="return" value="Назад">
-</div>
 <div align=right>
 <input type=submit name="add_sup" value="Добавить">
 </div>
 </form>
+
+<dvi align=left>
+</form>
+<form action=" " method=post>
+<input type=submit name="return" value="Назад">
+</form>
+</div>
+
+
 <body>
 </body>
 </html>
