@@ -15,6 +15,6 @@ while($row=$result->fetch())
 				  'name'=>$row['P_Name'],
 				  'material'=>$row['P_Material'],
 				  'weight'=>$row['P_Weight'],
-				  'price'=>$row['P_price']);
+				  'price'=>$row['P_Price']);
 }
 ?>

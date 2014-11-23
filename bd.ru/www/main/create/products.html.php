@@ -10,7 +10,7 @@
 <label for="count">Введите количество товара</label>
 <input required id="count" name="provision_count" ><br>
 <input type=submit name="choose_prod">
-</form>
+
 <table border=1 width=100%>
 <tbody>
                 <tr>
@@ -33,26 +33,54 @@
 </table>
 
 <br><br>
-<form action=" " metho="get">
-<input type="submit" id="button" name="product_end" value="Создать накладную">
-</form>
+
+
+
 <hr>
 <h2>Выбранный товар</h2>
-<table border=1 width=30%>
+<table border=1 width=40%>
 <tbody>
 <tr>
 <td align=center> Id </td>
 <td align=center> Наименование товара </td>
 <td align=center> Количество </td>
-<?php foreach($Provision_chosen as $c_row):?>
- <tr>
-				       <td align = center ><?php echo $p_row['id'];?></td>
-				       <td align = center ><?php echo $provision[$p_row['id']]['name'];?></td>
-					   <td align = center> <?php echo $p_row['count'];?></td>
-					   </tr>
-					   <?php endforeach; ?>
+</tr>
+						
+                       <tr>
+					   <td align = center><?php echo $_GET['provision']?></td>
+					   <td align=center><?php echo $provision[$_GET['provision']-1]['name']?></td>
+                       <td align=center ><?php echo $_GET['provision_count']?></td>
+                       <td align=center><input type="submit" name="delete"value="Удалить"></td>
+                       <td align=center><input type="submit" name="edit" value="Редактировать"></td>
+                       </tr>
+                      <?php 
+					    $a=1;
+					      while(isset($_GET[$i]))
+						  {							  
+						   $i="h".$a;
+							$j="hc".$a;    
+							  echo "<input type=hidden name=".$i." value=".$_GET[$i]."><br>";
+                              echo "<input type=hidden name=".$j." value=".$_GET[$j].">";
+                              $a+=1;
+						  }
+					?>
                        
+                       
+                       <input type="hidden" name="supplier" value="<?php echo $_GET['supplier']?>">	
                        </tbody>
                        </table>
+                      
+
+
+</form>
+
+<?php print_r($_GET); ?>
+
+<br><br>
+<div align=right>
+<form action = " " method = "get">
+<input type="submit" id="button" name="product_end" value="Создать накладную">
+</form>
+</div>
 </body>
 </html>
