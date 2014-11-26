@@ -14,7 +14,9 @@
 <div align=center>
 <a href="query.html" > Информационные запросы </a>
 <br><br>
-<a href="/main/main.html">Накладная </a>
+<a href="/naklad/">Накладная </a>
+<br><br>
+<a href="/supplier/index.php"> Поставщики </a>
 </div>
 </body>
 </html>
