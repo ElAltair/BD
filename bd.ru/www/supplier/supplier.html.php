@@ -13,7 +13,10 @@
 				 <td align=center>Id контракта</td>
 				 <td align=center>Дата заключения контракта</td>
                  <td align=center colspan="2"> Редактирование </td>
- <?php foreach($supplier as $s_row):?>
+ <?php
+     if(is_array($supplier))
+{	 
+     	   foreach($supplier as $s_row):?>
 				 <tr>
 				       <td align = center ><?php echo $s_row['id'];?></td>
 				       <td align = center ><?php echo $s_row['name'];?></td>
@@ -22,15 +25,15 @@
 					   <td align = center> <?php echo $s_row['date'];?></td>
                        <td align=center>
                        <br>
-                       <form aciton=" " method=post>
+                       <form action="?Delete" method=post>
                          <input type=hidden name="id" value=<?php echo $s_row['id']?> >
-                       <input type=submit name=delete value=Удалить>
+                       <input type=submit value=Удалить>
                      
                        </form>
                        </td>
                        <td align=center>
                        <br>
-                       <form aciton="?Edit" method=post>
+                       <form action="?Edit" method=post>
                        <input type=submit name=edit value=Редактировать>
                        <input type=hidden name="id" value=<?php echo $s_row['id']?> >
                        </form>
@@ -38,17 +41,20 @@
                        </td>
                        
 					   </tr>
-					   <?php endforeach; ?>
+					   <?php endforeach;
+				}
+ ?>
+					 
 </tbody>
 </table>
 <br><br>
 <div align=left>
-<form action=" " metho="get">
+<form action=" " method="get">
 <input type="submit" id="button" name="back_main_page" value="Назад">
 </form>
 </div>
 <div align=right>
-<form action=" " metho="get">
+<form action=" " method="get">
 <input type="submit" id="button" name="new_sup" value="Добавить нового поставщика">
 </form>
 </div>

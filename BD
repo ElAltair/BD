@@ -195,19 +195,20 @@ CREATE TABLE `supplier` (
   `S_Adress` varchar(45) DEFAULT NULL,
   `S_contract_id` int(10) unsigned DEFAULT NULL,
   `S_contract_date` date DEFAULT NULL,
+  `S_deleted` int(10) unsigned NOT NULL,
   PRIMARY KEY (`S_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1214 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `supplier`
 --
 
 /*!40000 ALTER TABLE `supplier` DISABLE KEYS */;
-INSERT INTO `supplier` (`S_id`,`S_Name`,`S_Adress`,`S_contract_id`,`S_contract_date`) VALUES 
- (1,'ООО Детали здесь','г. Выборг',5600,'2020-01-20'),
- (2,'ОАО Детал пром','г. Москва',5601,'2020-05-20'),
- (3,'ООО Детпром','г. Санкт-Петербург',5602,'2021-05-20'),
- (4,'Dkfl','Moscow',78,'2014-11-23');
+INSERT INTO `supplier` (`S_id`,`S_Name`,`S_Adress`,`S_contract_id`,`S_contract_date`,`S_deleted`) VALUES 
+ (1,'ООО Детали здесь','г. Выборг',5600,'2020-01-20',0),
+ (2,'ОАО Детал пром','г. Москва',5601,'2020-05-20',0),
+ (3,'ООО Детпром','г. Санкт-Петербург',5602,'2021-05-20',0),
+ (123,'123','123',123,'2014-11-27',1);
 /*!40000 ALTER TABLE `supplier` ENABLE KEYS */;
 
 
