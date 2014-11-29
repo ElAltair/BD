@@ -6,7 +6,7 @@ include"../include/connect_bd.php";
 
 if(isset($_GET['back_main_page']))
 {
-include "../main_page.html.php";
+include "../index.php";
 exit();
 }
 
@@ -24,7 +24,14 @@ if(isset($_GET['Delete']))
    exit();
    
  }
- 
+
+ if(isset($_GET['Edit']))
+ {
+	 $_SESSION['edit_id']=$_POST['id'];
+	 include "edit_form.html.php";
+	 exit();
+	 
+ }
  if(isset($_GET['yes']))
   {
    
@@ -38,6 +45,7 @@ if(isset($_GET['Delete']))
   }
 
  include "all_suppliers.php"; 
+// print_r($supplier);
 include "supplier.html.php";
 
 ?>

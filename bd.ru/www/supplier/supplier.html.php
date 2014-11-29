@@ -34,7 +34,7 @@
                        <td align=center>
                        <br>
                        <form action="?Edit" method=post>
-                       <input type=submit name=edit value=Редактировать>
+                       <input type=submit value=Редактировать>
                        <input type=hidden name="id" value=<?php echo $s_row['id']?> >
                        </form>
                        
